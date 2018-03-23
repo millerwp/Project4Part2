@@ -11,9 +11,12 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    DatabaseHelper helper = new DatabaseHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
     public void onResultClick(View view)
     {
         if(view.getId() == R.id.Bresults) {
+            EditText searchTerm = (EditText)findViewById(R.id.TFterm);
+            String searchString = searchTerm.getText().toString();
+
+            String term = helper.searchTerm(searchString);
+
             Intent i = new Intent(MainActivity.this, Results.class);
             startActivity(i);
         }

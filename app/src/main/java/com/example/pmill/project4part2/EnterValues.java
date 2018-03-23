@@ -13,6 +13,8 @@ import android.widget.EditText;
 
 public class EnterValues extends Activity {
 
+    DatabaseHelper helper = new DatabaseHelper(this);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,14 +25,12 @@ public class EnterValues extends Activity {
     {
         if(view.getId() == R.id.Badd) {
             EditText pair1 = (EditText)findViewById(R.id.TFword);
-            String word1 = pair1.getText().toString();
             EditText pair2 = (EditText)findViewById(R.id.TFantonym);
+            String word1 = pair1.getText().toString();
             String antonym = pair2.getText().toString();
+            WordPair wordPair = new WordPair(word1,antonym);
 
-            Intent i = new Intent(this, EnterValues.class);
-            i.putExtra("word", word1);
-            i.putExtra("antonym", antonym);
-            startActivity(i);
+            helper.insertWordPair(wordPair);
         }
     }
 }
