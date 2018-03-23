@@ -9,21 +9,28 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="The antonym of " />
+        android:text="The antonym of "
+        tools:textSize="30sp" />
 
     <TextView
         android:id="@+id/TVword"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        tools:text="@string/emptyString" />
 
     <TextView
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="is" />
+        android:text="is"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/TVantonym"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="@string/emptyString"
+        android:textSize="30sp" />
+
 </LinearLayout>

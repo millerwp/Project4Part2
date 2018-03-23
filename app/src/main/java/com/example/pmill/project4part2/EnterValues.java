@@ -29,8 +29,8 @@ public class EnterValues extends Activity {
             String word1 = pair1.getText().toString();
             String antonym = pair2.getText().toString();
             WordPair wordPair = new WordPair(word1,antonym);
-
             helper.insertWordPair(wordPair);
+            finish();
         }
     }
 }

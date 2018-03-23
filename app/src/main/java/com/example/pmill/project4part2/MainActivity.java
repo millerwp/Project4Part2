@@ -47,9 +47,11 @@ public class MainActivity extends AppCompatActivity {
             EditText searchTerm = (EditText)findViewById(R.id.TFterm);
             String searchString = searchTerm.getText().toString();
 
-            String term = helper.searchTerm(searchString);
+            String resultAnt = helper.searchTerm(searchString);
 
             Intent i = new Intent(MainActivity.this, Results.class);
+            i.putExtra("Term", searchString);
+            i.putExtra("Result",resultAnt);
             startActivity(i);
         }
     }

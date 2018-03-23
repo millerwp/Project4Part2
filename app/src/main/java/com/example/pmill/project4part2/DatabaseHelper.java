@@ -32,6 +32,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     {
         db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
+
+        String query = "select * from pairs";
+        Cursor cursor = db.rawQuery(query, null);
+        int count = cursor.getCount();
+
+        values.put(COLUMN_ID, count);
         values.put(COLUMN_WORD, pair.getWord());
         values.put(COLUMN_ANTONYM, pair.getAntonym());
         db.insert(TABLE_NAME, null, values);
@@ -52,6 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 if(tempWord.equalsIgnoreCase(word))
                 {
                     tempAnt = cursor.getString(1);
+                    break;
                 }
             } while(cursor.moveToNext());
         }
